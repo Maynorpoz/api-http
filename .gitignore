@@ -1,0 +1,35 @@
+# Dependencias
+node_modules/
+
+# Compilados
+dist/
+build/
+
+# Variables de entorno locales (.env.example si se versiona)
+.env
+*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cobertura y cachés
+coverage/
+.nyc_output/
+*.tsbuildinfo
+
+# Evidencia generada por la suite de interfaz (se regenera con npm run test:ui)
+frontend/pruebas/capturas/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/

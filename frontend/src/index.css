@@ -1,0 +1,528 @@
+:root {
+  --rojo: #c8102e;
+  --rojo-oscuro: #8f0b20;
+  --verde: #0f7a3d;
+  --verde-fondo: #e8f6ed;
+  --rojo-fondo: #fdeaed;
+  --tinta: #10151c;
+  --tinta-suave: #5b6675;
+  --borde: #e2e6eb;
+  --superficie: #ffffff;
+  --fondo: #f5f6f8;
+  --radio: 10px;
+
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--tinta);
+  background-color: var(--fondo);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Estructura ---------- */
+
+.pagina {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 32px 16px 48px;
+}
+
+.pagina__contenido {
+  display: grid;
+  gap: 20px;
+}
+
+.pagina__aviso {
+  margin-bottom: 20px;
+}
+
+.panel {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 20px;
+  /* Un item de grid no baja de su contenido salvo que se le permita: sin esto
+     la tabla ensancha la pagina en lugar de scrollear dentro de su contenedor. */
+  min-width: 0;
+}
+
+.panel__titulo,
+.ficha__titulo {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.panel__titulo {
+  margin-bottom: 14px;
+}
+
+/* ---------- Cabecera ---------- */
+
+.cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.cabecera__marca {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cabecera__escudo {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--rojo);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.cabecera__titulo {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.cabecera__subtitulo {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+  color: var(--tinta-suave);
+}
+
+.cabecera__datos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #eef1f4;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--tinta-suave);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Formulario ---------- */
+
+.ficha__nota {
+  margin: 0 0 16px;
+  font-size: 0.82rem;
+  color: var(--tinta-suave);
+  line-height: 1.45;
+}
+
+.ficha__campos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.campo--ancho {
+  grid-column: span 2;
+}
+
+.campo__etiqueta {
+  font-size: 0.75rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--tinta-suave);
+}
+
+.campo__opcional {
+  font-style: normal;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: 0.7;
+}
+
+.campo__control {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  background: var(--superficie);
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--tinta);
+}
+
+.campo__control--mini {
+  max-width: 88px;
+  font-variant-numeric: tabular-nums;
+}
+
+.campo__control:focus-visible {
+  outline: 2px solid var(--rojo);
+  outline-offset: 1px;
+  border-color: var(--rojo);
+}
+
+.campo__control:disabled {
+  background: #f6f7f9;
+  color: var(--tinta-suave);
+}
+
+/* ---------- Botones ---------- */
+
+.boton {
+  padding: 8px 14px;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  background: var(--superficie);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--tinta);
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.boton:hover:not(:disabled) {
+  background: #f3f5f7;
+}
+
+.boton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.boton--principal {
+  background: var(--rojo);
+  border-color: var(--rojo);
+  color: #fff;
+}
+
+.boton--principal:hover:not(:disabled) {
+  background: var(--rojo-oscuro);
+  border-color: var(--rojo-oscuro);
+}
+
+.boton--peligro {
+  background: var(--rojo-oscuro);
+  border-color: var(--rojo-oscuro);
+  color: #fff;
+}
+
+.boton--peligro-suave {
+  color: var(--rojo-oscuro);
+}
+
+.boton--peligro-suave:hover:not(:disabled) {
+  background: var(--rojo-fondo);
+  border-color: #f2c2ca;
+}
+
+/* ---------- Buscador ---------- */
+
+.buscador {
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--borde);
+}
+
+.buscador__campos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.buscador__campos .campo--ancho {
+  flex: 1 1 220px;
+}
+
+.buscador__campos .campo {
+  flex: 0 1 180px;
+}
+
+.buscador__limpiar {
+  flex-shrink: 0;
+}
+
+.buscador__estado {
+  margin: 10px 0 0;
+  font-size: 0.8rem;
+  color: var(--tinta-suave);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Tabla ---------- */
+
+.tabla__contenedor {
+  overflow-x: auto;
+  transition: opacity 0.15s ease;
+}
+
+/* Atenua la tabla mientras llega la respuesta, sin reemplazarla por el esqueleto. */
+.tabla__contenedor--buscando {
+  opacity: 0.55;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tabla th {
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--tinta-suave);
+  border-bottom: 1px solid var(--borde);
+  white-space: nowrap;
+}
+
+.tabla td {
+  padding: 10px;
+  border-bottom: 1px solid #f0f2f5;
+  vertical-align: middle;
+}
+
+.fila--editando,
+.fila--confirmando {
+  background: #fbfcfd;
+}
+
+.fila--confirmando td:first-child {
+  font-size: 0.88rem;
+  color: var(--tinta-suave);
+}
+
+.fila__nombre {
+  font-weight: 600;
+}
+
+.fila__numero {
+  font-variant-numeric: tabular-nums;
+  color: var(--tinta-suave);
+}
+
+/* La celda se mantiene como table-cell; el flex vive en un contenedor interno.
+   Aplicar display:flex al <td> lo saca del layout de tabla y corta los bordes. */
+.fila__acciones {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.acciones {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.dorsal {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  background: var(--rojo);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.posicion {
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  background: #eef1f4;
+  color: var(--tinta-suave);
+  white-space: nowrap;
+}
+
+.posicion--arquero {
+  background: #fff4e0;
+  color: #8a5a00;
+}
+
+.posicion--defensa {
+  background: #e7f0fb;
+  color: #1a4f8a;
+}
+
+.posicion--mediocampista {
+  background: var(--verde-fondo);
+  color: var(--verde);
+}
+
+.posicion--delantero {
+  background: var(--rojo-fondo);
+  color: var(--rojo-oscuro);
+}
+
+/* ---------- Avisos ---------- */
+
+.aviso {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radio);
+  border: 1px solid;
+  font-size: 0.88rem;
+}
+
+.aviso--exito {
+  background: var(--verde-fondo);
+  border-color: #bfe3cd;
+  color: #0b5c2e;
+}
+
+.aviso--error {
+  background: var(--rojo-fondo);
+  border-color: #f2c2ca;
+  color: #7a0b1d;
+}
+
+.aviso__icono {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: rgb(0 0 0 / 0.07);
+  font-size: 0.74rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.aviso__cuerpo {
+  flex: 1;
+}
+
+.aviso__texto {
+  margin: 0;
+  font-weight: 600;
+}
+
+.aviso__motivos {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.aviso__cerrar {
+  flex-shrink: 0;
+  border: 0;
+  background: none;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.6;
+  padding: 0 2px;
+}
+
+.aviso__cerrar:hover {
+  opacity: 1;
+}
+
+/* ---------- Carga y vacio ---------- */
+
+.esqueleto {
+  display: grid;
+  gap: 8px;
+}
+
+.esqueleto__fila {
+  height: 42px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #eef1f4 25%, #f6f8fa 50%, #eef1f4 75%);
+  background-size: 200% 100%;
+  animation: brillo 1.3s ease-in-out infinite;
+}
+
+@keyframes brillo {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.vacio {
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+  padding: 10px 0;
+}
+
+.vacio__titulo {
+  margin: 0;
+  font-weight: 650;
+}
+
+.vacio__texto {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--tinta-suave);
+  line-height: 1.5;
+}
+
+/* ---------- Pie ---------- */
+
+.pie {
+  margin-top: 28px;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--tinta-suave);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .esqueleto__fila {
+    animation: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .campo--ancho {
+    grid-column: span 1;
+  }
+
+  .acciones {
+    flex-direction: column;
+  }
+}
